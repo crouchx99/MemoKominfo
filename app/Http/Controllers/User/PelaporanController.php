@@ -57,12 +57,14 @@ class PelaporanController extends Controller
         ]);
 
         if($request->hasFile('upload_gambar')){
-            $filenameWithExt = $request->file('upload_gambar')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('upload_gambar')->getClientOriginalExtension();
-            $filenameSimpan = $filename.'_'.time().'.'.$extension;
-            $path = $request->file('upload_gambar')->storeAs('/images', $filenameSimpan);
-
+            // $filenameWithExt = $request->file('upload_gambar')->getClientOriginalName();
+            // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // $extension = $request->file('upload_gambar')->getClientOriginalExtension();
+            // $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            // $path = $request->file('upload_gambar')->storeAs('images/', $filenameSimpan);
+            $path_file = 'images/';
+            $store_file = date('YmdHis') . "." . $request->upload_gambar->getClientOriginalExtension();
+            $request->upload_gambar->move($path_file, $store_file);
         }else{
             return $request;
         }
@@ -74,7 +76,7 @@ class PelaporanController extends Controller
         $pelaporan->media= $request['media'];
         $pelaporan->jenis_berita= $request['inlineRadioOptions'];
         $pelaporan->saran= $request['saran'];
-        $pelaporan->upload_gambar = $filenameSimpan;
+        $pelaporan->upload_gambar = $store_file;
         $pelaporan -> user_id = Auth::id();
         $pelaporan->save();
         return redirect()->route('user.pelaporan.index')->with([

@@ -9,7 +9,7 @@ class ViewController extends Controller
 {
     public function view($id) 
     {
-        $data = Pelaporan::where('id')->get();
+        $data = Pelaporan::where('id', $id)->get();
         return view('user.rekapitulasi.detail', compact('data'));
     }
 }

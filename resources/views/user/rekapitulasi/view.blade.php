@@ -77,11 +77,11 @@
                         </td>
                     
                         <td>
-                            <a class="btn btn-xs btn-primary" href="{{ url('rekapitulasi-detail/'.$datas->id) }}">
+                            <a class="btn btn-xs btn-primary" href="{{ url('user/rekapitulasi-detail/'.$datas->id) }}">
                                 {{ trans('global.view') }}
                             </a>
 
-                            <a class="btn btn-xs btn-info" href="">
+                            <a class="btn btn-xs btn-info" href="{{ url('user/rekapitulasi/'.$datas->id.'/edit')}}">
                                 {{ trans('global.edit') }}
                             </a>
 
