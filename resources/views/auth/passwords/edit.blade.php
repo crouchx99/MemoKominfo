@@ -1,12 +1,14 @@
 @extends('layouts.admin')
 @section('content')
 <style>
-body {
-  background-image: url('images/background_login.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
+    body {
+        height: 100%;
+        background-image:url({{url('images/background_login.png')}});
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
 
 <div class="card">
     <div class="card-header">

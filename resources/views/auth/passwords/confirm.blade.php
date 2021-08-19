@@ -1,5 +1,14 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    body {
+        height: 100%;
+        background-image:url({{url('images/background_login.png')}});
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
