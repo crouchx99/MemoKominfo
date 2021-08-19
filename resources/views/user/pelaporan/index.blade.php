@@ -1,5 +1,14 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+    body {
+        height: 100%;
+        background-color: #F3F8FF;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
 <div class="content-page">
     <div class="container-fluid">
         <div class="card">

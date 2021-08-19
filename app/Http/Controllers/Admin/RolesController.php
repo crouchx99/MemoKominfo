@@ -65,7 +65,7 @@ class RolesController extends Controller
 
         $role->load('permissions');
 
-        return view('admin.roles.show', compact('role'));
+        return view('admin.roles.show', compact('role'))->with('i');
     }
 
     public function destroy(Role $role)

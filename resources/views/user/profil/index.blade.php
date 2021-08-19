@@ -4,7 +4,7 @@
 <style>
     body {
         height: 100%;
-        background-color: #F3F8FF;
+        background-image:url({{url('images/background_login.png')}});
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;

@@ -1,17 +1,32 @@
 @extends('layouts.admin')
 @section('content')
 @can('user_create')
+<style>
+    body {
+        height: 100%;
+        background-image:url({{url('images/background_login.png')}});
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .table .thead-blue th {
+        color: #FEFAFA;
+        background-color: #133C77;
+        border-color: #dee2e6;
+    }
+</style>
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route('admin.users.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.user.title_singular') }}
+                Tambah Anggota
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}
+        Daftar Anggota
     </div>
 
     <div class="card-body">
@@ -19,26 +34,20 @@
             <table class=" table table-bordered table-striped table-hover datatable datatable-User">
                 <thead>
                     <tr>
-                        <th width="10">
-
+                        <th>
+                            Nama
                         </th>
                         <th>
-                            {{ trans('cruds.user.fields.id') }}
+                            Email
                         </th>
                         <th>
-                            {{ trans('cruds.user.fields.name') }}
+                            Dibuat pada
                         </th>
                         <th>
-                            {{ trans('cruds.user.fields.email') }}
+                            Role Pengguna
                         </th>
                         <th>
-                            {{ trans('cruds.user.fields.email_verified_at') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.user.fields.roles') }}
-                        </th>
-                        <th>
-                            &nbsp;
+                            Aksi &nbsp;
                         </th>
                     </tr>
                 </thead>
@@ -46,19 +55,13 @@
                     @foreach($users as $key => $user)
                         <tr data-entry-id="{{ $user->id }}">
                             <td>
-
-                            </td>
-                            <td>
-                                {{ $user->id ?? '' }}
-                            </td>
-                            <td>
                                 {{ $user->name ?? '' }}
                             </td>
                             <td>
                                 {{ $user->email ?? '' }}
                             </td>
                             <td>
-                                {{ $user->email_verified_at ?? '' }}
+                                {{ $user->created_at ?? '' }}
                             </td>
                             <td>
                                 @foreach($user->roles as $key => $item)

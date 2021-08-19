@@ -4,7 +4,7 @@
 <style>
     body {
         height: 100%;
-        background-color: #F3F8FF;
+        background-image:url({{url('images/background_login.png')}});
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -15,8 +15,8 @@
     <div class="container">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
-               <div class="header-title">
-                  <h4 class="card-title" style="margin:5px; color:#0C355A">Edit Profil</h4>
+               <div class="header-title" style="background-color:#F3F8FF">
+                  <h4 class="card-title">Edit Profil</h4>
                </div>
             </div>
             <div class="panel-body">
@@ -70,16 +70,6 @@
                                 <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
                         </div>
-
-                    <!-- <div class="col-sm-10">
-                    <input type="file" name="image" @error('image') is-invalid @enderror id="input-image"
-                        value="{{ old('image') }}">
-                    @error('image')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                    @enderror
-                    <br><br>
-                    <img id="preview" width="200">
-                    </div> -->
 
                     <div class="float-right p-4">
                         <input class="btn btn-primary mr-2" type="reset" value="Batalkan">

@@ -1,17 +1,31 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+    body {
+        height: 100%;
+        background-image:url({{url('images/background_login.png')}});
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
 
+    .table .thead-blue th {
+        color: #FEFAFA;
+        background-color: #133C77;
+        border-color: #dee2e6;
+    }
+</style>
 <div class="card">
     <div class="card-header">
-        {{ trans('global.edit') }} {{ trans('cruds.user.title_singular') }}
+        Edit Pengguna
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.users.update", [$user->id]) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.users.update', [$user->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label class="required" for="name">{{ trans('cruds.user.fields.name') }}</label>
+                <label class="required" for="name">Nama</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $user->name) }}" required>
                 @if($errors->has('name'))
                     <div class="invalid-feedback">
@@ -41,7 +55,7 @@
                 <span class="help-block">{{ trans('cruds.user.fields.password_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
+                <label class="required" for="roles">Role Pengguna</label>
                 <div style="padding-bottom: 4px">
                     <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
                     <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
