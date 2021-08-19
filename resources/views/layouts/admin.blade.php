@@ -230,10 +230,6 @@
   $.fn.dataTable.ext.classes.sPageButton = '';
 });
 
-  background-image: url('images/background_login.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
     </script>
     
     @yield('scripts')
