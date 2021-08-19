@@ -2,7 +2,7 @@
 @section('content')
 <style>
     body {
-        background-image:url({{url('images/background_login.png')}});
+        background-image:url('{{url('images/background_login.png')}}');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;

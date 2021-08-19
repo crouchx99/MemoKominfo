@@ -73,12 +73,8 @@
                 <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
             </div>
             <div class="form-group">
-                <a class="btn btn-primary" href="{{ route('admin.users.index') }}">
-                    Kembali
-                </a>
-                <a class="btn btn-success" type="submit">
-                    Simpan
-                </a>
+                <a class="btn btn-primary" href="{{ route('admin.users.index') }}">Kembali</a>
+                <button class="btn btn-success" type="submit">Simpan</button>
             </div>
         </form>
     </div>

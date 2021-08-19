@@ -1,15 +1,24 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+    body {
+        height: 100%;
+        background-color: #F3F8FF;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
 <div class="content-page">
     <div class="container-fluid">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                <div class="header-title">
-                  <h5 class="card-title">Data Berita</h5>
+                  <h5 class="card-title m-2" style="font-weight:bold">Data Berita Harian</h5>
                </div>
             </div>
             <div class="card-body">
-
+                
                <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 d-flex justify-content-center">         
