@@ -14,7 +14,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                <div class="header-title">
-                  <h5 class="card-title">Pelaporan Berita</h5>
+                  <h5 class="card-title m-2">Pelaporan Berita</h5>
                </div>
             </div>
             <div class="card-body">

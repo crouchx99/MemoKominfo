@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\ViewController;
 
 Route::redirect('/', '/login');
 
@@ -23,6 +24,8 @@ Route::group([
     Route::get('/rekapitulasi/detail', 'RekapitulasiController@detail');
     Route::resource('rekapitulasi', 'RekapitulasiController');
 
+    Route::get('/rekapitulasi-detail/{id}',[ViewController::class,'view']);
+
     Route::resource('profil', 'ProfilController');
 
 });
@@ -35,13 +38,6 @@ Route::group([
 ], function () {
     Route::get('/', 'HomeController@index')->name('home');
     
-    // Permissions
-    // Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
-    // Route::resource('permissions', 'PermissionsController');
-
-    //Kelola
-    // Route::resource('kelola', 'KelolaController');
-
     //Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');

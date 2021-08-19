@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\RoleUser;
+use App\Pelaporan;
 use Illuminate\Support\Facades\DB;
 
 
@@ -59,6 +60,12 @@ class RekapitulasiController extends Controller
         $role_user = RoleUser::find($id_user);
         $data = DB::table('berita')->select('*')->orderBy('created_at', 'desc')->get();
         return view('user.rekapitulasi.view', compact('user','role_user', 'data'))->with('i');
+    }
+
+    public function view($id) 
+    {
+        $data = Pelaporan::where('id')->get();
+        return view('user.rekapitulasi.detail', compact('data'));
     }
 
     public function detail()

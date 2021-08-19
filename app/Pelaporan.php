@@ -9,7 +9,7 @@ class Pelaporan extends Model
     protected $table = 'berita';
     
     protected $fillable = [
-        'judul_berita', 'kategori_berita', 'isi_berita', 'media', 'jenis_berita', 'saran', 'upload_gambar'
+        'judul_berita', 'kategori_berita', 'isi_berita', 'media', 'jenis_berita', 'saran', 'upload_gambar', 'user_id'
         ];
 
     protected $hidden = [

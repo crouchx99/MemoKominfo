@@ -77,7 +77,7 @@
                         </td>
                     
                         <td>
-                            <a class="btn btn-xs btn-primary" href="{{ route('user.rekapitulasi.index') }}/detail">
+                            <a class="btn btn-xs btn-primary" href="{{ url('rekapitulasi-detail/'.$datas->id) }}">
                                 {{ trans('global.view') }}
                             </a>
 
@@ -104,7 +104,7 @@
 @parent
 <script>
     $(function () {
-  let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
+//   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
 @can('user_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
