@@ -14,12 +14,12 @@
 <div class="content-page">
     <div class="container">
         <div class="card" style="height: 400px">
-            <div class="card-header d-flex justify-content-between">
+            <div class="card-header d-flex justify-content-between"  style="background-color:#F3F8FF">
                <div class="header-title">
-                  <h4 class="card-title" style="margin:5px; color:#0C355A">Profil</h4>
+                  <h4 class="card-title mt-2 ml-2">Profil</h4>
                </div>
                 <div class="col-left">
-                    <a href="{{ route('user.profil.index')}}/${user.id_user}/edit" class="btn btn-secondary item-center" style="color:">Edit Profil<i class="fa fa-pencil-square-o pl-2" aria-hidden="true"></i></a>
+                    <a href="{{ route('user.profil.index')}}/${user.id_user}/edit" class="btn btn-primary item-center mt-2 mr-2" style="color:">Edit Profil<i class="fa fa-pencil-square-o pl-2" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row">

@@ -18,7 +18,7 @@
 
 <div class="card">
     <div class="card-header">
-        View Pengguna
+        Data Pengguna
     </div>
 
     <div class="card-body">
@@ -66,11 +66,6 @@
                     </tr>
                 </tbody>
             </table>
-            <!-- <div class="form-group">
-                <a class="btn btn-primary" href="{{ route('admin.users.index') }}">
-                    Kembali
-                </a>
-            </div> -->
         </div>
     </div>
 </div>
