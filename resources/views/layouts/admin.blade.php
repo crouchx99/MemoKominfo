@@ -118,7 +118,7 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/upload.js') }}"></script>
     <script>
-        $(function() {
+  $(function() {
   let copyButtonTrans = '{{ trans('global.datatables.copy') }}'
   let csvButtonTrans = '{{ trans('global.datatables.csv') }}'
   let excelButtonTrans = '{{ trans('global.datatables.excel') }}'

@@ -119,14 +119,14 @@
             labels: ["S", "M", "T", "W", "T", "F", "S"],
             datasets: [{
                 label: 'Berita Positif',
-                data: [589, 283, 183, 503, 689, 492, 634],
+                data: [{{$positif[0]}}, {{$positif[1]}}, {{$positif[2]}}, {{$positif[3]}}, {{$positif[4]}}, {{$positif[5]}}, {{$positif[6]}}],
                 backgroundColor: 'transparent',
                 borderColor: colors[0],
                 pointBackgroundColor: colors[0]
             },
             {   
                 label: 'Berita Negatif',
-                data: [339, 465, 493, 278, 389, 632, 374],
+                data: [{{$negatif[0]}}, {{$negatif[1]}}, {{$negatif[2]}}, {{$negatif[3]}}, {{$negatif[4]}}, {{$negatif[5]}}, {{$negatif[6]}}],
                 backgroundColor: 'transparent',
                 borderColor: colors[2],
                 pointBackgroundColor: colors[2]

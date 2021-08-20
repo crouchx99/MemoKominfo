@@ -17,6 +17,7 @@
                <div class="header-title">
                   <h5 class="card-title m-2" style="font-weight:bold">Data Berita Harian</h5>
                </div>
+               <a class="btn btn-success m-1" href="/user/rekapitulasi-detail/{id}" style="text-center" > <i class="fas fa-file-pdf"></i> Cetak PDF </a>
             </div>
             <div class="card-body">
                 
@@ -63,7 +64,4 @@
         </div>
     </div>
 </div>
-@endsection
-@section('scripts')
-    @parent
 @endsection

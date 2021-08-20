@@ -35,6 +35,9 @@
                 <thead>
                     <tr>
                         <th>
+                            No
+                        </th>
+                        <th>
                             Nama
                         </th>
                         <th>
@@ -52,8 +55,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php $i=1 @endphp
                     @foreach($users as $key => $user)
                         <tr data-entry-id="{{ $user->id }}">
+                            <td>
+                                {{$i++}}
+                            </td>
                             <td>
                                 {{ $user->name ?? '' }}
                             </td>

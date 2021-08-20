@@ -22,8 +22,32 @@ class RekapitulasiController extends Controller
         $id_user = auth()->user()->id;
         $user = User::find($id_user);
         $role_user = RoleUser::find($id_user);
+        $berita_positif = DB::select("select DAYNAME(updated_at) as 'day', count(updated_at) as 'jumlah' from berita where jenis_berita = 'positif'group by day");
+        $berita_negatif = DB::select("select DAYNAME(updated_at) as 'day', count(updated_at) as 'jumlah' from berita where jenis_berita = 'negatif'group by day");
+        $i = 0;
+        $dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];;
+        $positif = array(0,0,0,0,0,0,0);
+        $negatif = array(0,0,0,0,0,0,0);
+        foreach($dayNames as $hari){
+            foreach($berita_positif as $data){
+                if($hari == $data->day){
+                        $positif[$i] = $data->jumlah;
+                }  
+            }
+            $i++;
+        }
+        $i =0;
+        foreach($dayNames as $hari){
+            foreach($berita_negatif as $data){
+                if($hari == $data->day){
+                        $negatif[$i] = $data->jumlah;
+                }  
 
-        return view('user.rekapitulasi.index', compact('user','role_user'));
+            }  
+            $i++;
+        }
+         
+        return view('user.rekapitulasi.index', compact('user','role_user', 'positif', 'negatif'));
     }
 
     /**

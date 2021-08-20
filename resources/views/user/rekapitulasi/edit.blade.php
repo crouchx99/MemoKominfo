@@ -72,11 +72,11 @@
                                         <div class="form-group">
                                             <label class="mb-1 font-weight-bold" for="jenis_berita">Jenis Berita</label><br>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="positif" <?=$datas['jenis_berita'] == "positif" ? "checked" : null ?>>
                                                     <label class="form-check-label" for="inlineRadio1">Positif</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="negatif" <?=$datas['jenis_berita'] == "negatif" ? "checked" : null ?>>
                                                     <label class="form-check-label" for="inlineRadio2">Negatif</label>
                                                 </div>
                                         </div>
@@ -87,20 +87,13 @@
                                         </div>
 
                                         <label class="mb-1 font-weight-bold" for="upload_gambar">Upload Gambar</label>
-                                        {{-- <div class="dropzone-wrapper">
-                                                <div class="dropzone-desc">
-                                                <i class="fas fa-upload" ></i>
-                                                <p>Choose an image file or drag it here.</p>
-                                            </div>
-                                            <input type="file" name="img_logo" class="dropzone">
-                                        </div> --}}
                                         <br>
                                         <p>File lama : {{$datas->upload_gambar}}</p>
                                         <input type="file" value="{{$datas -> upload_gambar}}" name="upload_gambar">
                                         <br><br>                                      
                                 </div>
                                 <div class="col-lg-12 d-flex justify-content-end">
-                                    <input class="btn btn-primary mr-4" type="reset" value="Batalkan">
+                                    <a class="btn btn-primary mr-4" style="color:white" href={{url('/user/rekapitulasi/view')}}>Batalkan</a>
                                     <input class="btn btn-primary" type="submit" value="Simpan">
                                 </div>
                             </div>

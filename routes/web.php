@@ -5,10 +5,7 @@ Route::redirect('/', '/login');
 
 Route::get('/home','HomeController@index')->name('home');
 
-
 Auth::routes(['register' => false]);
-
-// Admin
 
 Route::group([
     'prefix' => 'user',
@@ -24,7 +21,9 @@ Route::group([
     Route::get('/rekapitulasi/detail', 'RekapitulasiController@detail');
     Route::resource('rekapitulasi', 'RekapitulasiController');
 
-    Route::get('/rekapitulasi-detail/{id}',[ViewController::class,'view']);
+    Route::get('/rekapitulasi-detail/{id}', [ViewController::class,'view']);
+
+   
 
     Route::resource('profil', 'ProfilController');
 

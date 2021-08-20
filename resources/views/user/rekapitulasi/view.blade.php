@@ -22,8 +22,10 @@
             <div class="col-lg-9">
                 <h1 class="font-weight-bold" style="color: #0C355A">Monitoring Media</h1>
             </div>
+            <div class="col-lg-12 mt-5 mb-3">
+                <a href="{{ route('user.pelaporan.index')}}" class="btn btn-lapor item-center">Tambah Laporan<i class="fa fa-plus-circle pl-2" aria-hidden="true"></i></a>
+            </div>
         </div><br>
-        
         <div class="table-responsive">
             <table class=" table table-bordered table-striped table-hover datatable datatable-User">
                 <thead class="thead-blue">
@@ -98,13 +100,15 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('scripts')
 @parent
 <script>
     $(function () {
-//   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
+    let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
+
 @can('user_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
