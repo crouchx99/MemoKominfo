@@ -22,9 +22,13 @@ body {
                         </div>
                 </div>
                 
-            <div class="col-lg-12 pt-2 mb-5 center">
-                <a href="{{ route('user.pelaporan.index') }}" class="btn btn-lapor item-center">Tambahkan Laporan<i class="fa fa-plus-circle pl-2" aria-hidden="true"></i></a>
-            </div><br>
+                <div class="col-lg-12 pt-2 mb-5 center">
+                    <a href="{{ route('user.pelaporan.index') }}" class="btn btn-lapor item-center">Tambahkan Laporan<i class="fa fa-plus-circle pl-2" aria-hidden="true"></i></a>
+                </div><br>
+
+                <div class="col-lg-12 pt-2 mb-5 center">
+                    <a href="{{ route('user.pelaporan.index') }}" class="btn btn-lapor item-center">Tambahkan Laporan<i class="fa fa-plus-circle pl-2" aria-hidden="true"></i></a>
+                </div><br>
 
             <div class="col-lg-12 col-md-12">
 
@@ -128,17 +132,17 @@ body {
     <script>
         var colors = ['#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
         var chartData = {
-                labels: ["S", "M", "T", "W", "T", "F", "S"],
+                labels: ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"],
                 datasets: [{
                     label: 'Berita Positif',
-                    data: [589, 283, 183, 503, 689, 492, 634],
+                    data: [{{$harian_positif[0]}}, {{$harian_positif[1]}}, {{$harian_positif[2]}}, {{$harian_positif[3]}}, {{$harian_positif[4]}}, {{$harian_positif[5]}}, {{$harian_positif[6]}}, {{$harian_positif[7]}}, {{$harian_positif[8]}}, {{$harian_positif[9]}}, {{$harian_positif[10]}}, {{$harian_positif[11]}}, {{$harian_positif[12]}}, {{$harian_positif[13]}},{{$harian_positif[14]}}, {{$harian_positif[15]}}, {{$harian_positif[16]}}, {{$harian_positif[17]}}, {{$harian_positif[18]}}, {{$harian_positif[19]}}, {{$harian_positif[20]}},{{$harian_positif[21]}}, {{$harian_positif[22]}}, {{$harian_positif[23]}}],
                     backgroundColor: 'transparent',
                     borderColor: colors[0],
                     pointBackgroundColor: colors[0]
                 },
                 {   
                     label: 'Berita Negatif',
-                    data: [339, 465, 493, 278, 389, 632, 374],
+                    data: [{{$harian_negatif[0]}}, {{$harian_negatif[1]}}, {{$harian_negatif[2]}}, {{$harian_negatif[3]}}, {{$harian_negatif[4]}}, {{$harian_negatif[5]}}, {{$harian_negatif[6]}}, {{$harian_negatif[7]}}, {{$harian_negatif[8]}}, {{$harian_negatif[9]}}, {{$harian_negatif[10]}}, {{$harian_negatif[11]}}, {{$harian_negatif[12]}}, {{$harian_negatif[13]}},{{$harian_negatif[14]}}, {{$harian_negatif[15]}}, {{$harian_negatif[16]}}, {{$harian_negatif[17]}}, {{$harian_negatif[18]}}, {{$harian_negatif[19]}}, {{$harian_negatif[20]}},{{$harian_negatif[21]}}, {{$harian_negatif[22]}}, {{$harian_negatif[23]}}],
                     backgroundColor: 'transparent',
                     borderColor: colors[2],
                     pointBackgroundColor: colors[2]

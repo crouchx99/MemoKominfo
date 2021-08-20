@@ -76,17 +76,17 @@
 <script>
     var colors = ['#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
     var chartData = {
-            labels: ["S", "M", "T", "W", "T", "F", "S"],
+            labels: ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"],
             datasets: [{
                 label: 'Berita Positif',
-                data: [589, 283, 183, 503, 689, 492, 634],
+                data: [{{$harian_positif[0]}}, {{$harian_positif[1]}}, {{$harian_positif[2]}}, {{$harian_positif[3]}}, {{$harian_positif[4]}}, {{$harian_positif[5]}}, {{$harian_positif[6]}}, {{$harian_positif[7]}}, {{$harian_positif[8]}}, {{$harian_positif[9]}}, {{$harian_positif[10]}}, {{$harian_positif[11]}}, {{$harian_positif[12]}}, {{$harian_positif[13]}},{{$harian_positif[14]}}, {{$harian_positif[15]}}, {{$harian_positif[16]}}, {{$harian_positif[17]}}, {{$harian_positif[18]}}, {{$harian_positif[19]}}, {{$harian_positif[20]}},{{$harian_positif[21]}}, {{$harian_positif[22]}}, {{$harian_positif[23]}}],
                 backgroundColor: 'transparent',
                 borderColor: colors[0],
                 pointBackgroundColor: colors[0]
             },
             {   
                 label: 'Berita Negatif',
-                data: [339, 465, 493, 278, 389, 632, 374],
+                data: [{{$harian_negatif[0]}}, {{$harian_negatif[1]}}, {{$harian_negatif[2]}}, {{$harian_negatif[3]}}, {{$harian_negatif[4]}}, {{$harian_negatif[5]}}, {{$harian_negatif[6]}}, {{$harian_negatif[7]}}, {{$harian_negatif[8]}}, {{$harian_negatif[9]}}, {{$harian_negatif[10]}}, {{$harian_negatif[11]}}, {{$harian_negatif[12]}}, {{$harian_negatif[13]}},{{$harian_negatif[14]}}, {{$harian_negatif[15]}}, {{$harian_negatif[16]}}, {{$harian_negatif[17]}}, {{$harian_negatif[18]}}, {{$harian_negatif[19]}}, {{$harian_negatif[20]}},{{$harian_negatif[21]}}, {{$harian_negatif[22]}}, {{$harian_negatif[23]}}],
                 backgroundColor: 'transparent',
                 borderColor: colors[2],
                 pointBackgroundColor: colors[2]
@@ -119,14 +119,14 @@
             labels: ["S", "M", "T", "W", "T", "F", "S"],
             datasets: [{
                 label: 'Berita Positif',
-                data: [{{$positif[0]}}, {{$positif[1]}}, {{$positif[2]}}, {{$positif[3]}}, {{$positif[4]}}, {{$positif[5]}}, {{$positif[6]}}],
+                data: [{{$mingguan_positif[0]}}, {{$mingguan_positif[1]}}, {{$mingguan_positif[2]}}, {{$mingguan_positif[3]}}, {{$mingguan_positif[4]}}, {{$mingguan_positif[5]}}, {{$mingguan_positif[6]}}],
                 backgroundColor: 'transparent',
                 borderColor: colors[0],
                 pointBackgroundColor: colors[0]
             },
             {   
                 label: 'Berita Negatif',
-                data: [{{$negatif[0]}}, {{$negatif[1]}}, {{$negatif[2]}}, {{$negatif[3]}}, {{$negatif[4]}}, {{$negatif[5]}}, {{$negatif[6]}}],
+                data: [{{$mingguan_negatif[0]}}, {{$mingguan_negatif[1]}}, {{$mingguan_negatif[2]}}, {{$mingguan_negatif[3]}}, {{$mingguan_negatif[4]}}, {{$mingguan_negatif[5]}}, {{$mingguan_negatif[6]}}],
                 backgroundColor: 'transparent',
                 borderColor: colors[2],
                 pointBackgroundColor: colors[2]
@@ -157,17 +157,17 @@
 <script>
     var colors = ['#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
     var chartData = {
-            labels: ["S", "M", "T", "W", "T", "F", "S"],
+            labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
             datasets: [{
                 label: 'Berita Positif',
-                data: [589, 283, 183, 503, 689, 492, 634],
+                data: [{{$bulanan_positif[0]}}, {{$bulanan_positif[1]}}, {{$bulanan_positif[2]}}, {{$bulanan_positif[3]}}, {{$bulanan_positif[4]}}, {{$bulanan_positif[5]}}, {{$bulanan_positif[6]}}, {{$bulanan_positif[7]}}, {{$bulanan_positif[8]}}, {{$bulanan_positif[9]}}, {{$bulanan_positif[10]}}, {{$bulanan_positif[11]}}],
                 backgroundColor: 'transparent',
                 borderColor: colors[0],
                 pointBackgroundColor: colors[0]
             },
             {   
                 label: 'Berita Negatif',
-                data: [339, 465, 493, 278, 389, 632, 374],
+                data: [{{$bulanan_negatif[0]}}, {{$bulanan_negatif[1]}}, {{$bulanan_negatif[2]}}, {{$bulanan_negatif[3]}}, {{$bulanan_negatif[4]}}, {{$bulanan_negatif[5]}}, {{$bulanan_negatif[6]}}, {{$bulanan_negatif[7]}}, {{$bulanan_negatif[8]}}, {{$bulanan_negatif[9]}}, {{$bulanan_negatif[10]}}, {{$bulanan_negatif[11]}}],
                 backgroundColor: 'transparent',
                 borderColor: colors[2],
                 pointBackgroundColor: colors[2]

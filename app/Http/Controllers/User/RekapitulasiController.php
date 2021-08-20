@@ -6,9 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\RoleUser;
-use App\Pelaporan;
 use Illuminate\Support\Facades\DB;
-
 
 class RekapitulasiController extends Controller
 {
@@ -22,10 +20,56 @@ class RekapitulasiController extends Controller
         $id_user = auth()->user()->id;
         $user = User::find($id_user);
         $role_user = RoleUser::find($id_user);
-        $berita_positif = DB::select("select DAYNAME(updated_at) as 'day', count(updated_at) as 'jumlah' from berita where jenis_berita = 'positif'group by day");
-        $berita_negatif = DB::select("select DAYNAME(updated_at) as 'day', count(updated_at) as 'jumlah' from berita where jenis_berita = 'negatif'group by day");
+        
+        $harian = $this->harian();
+        $harian_positif = $harian[0];
+        $harian_negatif = $harian[1];
+
+        $mingguan = $this->mingguan();
+        $mingguan_positif = $mingguan[0];
+        $mingguan_negatif = $mingguan[1];
+
+        $bulanan = $this->bulanan();
+        $bulanan_positif = $bulanan[0];
+        $bulanan_negatif = $bulanan[1];
+
+        return view('user.rekapitulasi.index', compact('user','role_user', 'harian_positif', 'harian_negatif', 'mingguan_positif', 'mingguan_negatif', 'bulanan_positif', 'bulanan_negatif'));
+    }
+
+    public function harian(){
+        $berita_positif = DB::select("select HOUR(updated_at) as 'hour', count(updated_at) as 'jumlah' from berita where jenis_berita = 'option1'group by hour");
+        $berita_negatif = DB::select("select HOUR(updated_at) as 'hour', count(updated_at) as 'jumlah' from berita where jenis_berita = 'option2'group by hour");
+        
+        
         $i = 0;
-        $dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];;
+        $hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
+        $positif = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        $negatif = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        foreach($hours as $jam){
+            foreach($berita_positif as $data){
+                if($jam == $data->hour){
+                        $positif[$i] = $data->jumlah;
+                }  
+            }
+            foreach($berita_negatif as $data){
+                if($jam == $data->hour){
+                        $negatif[$i] = $data->jumlah;
+                }  
+            }
+
+            $i++;
+        }
+
+        return array($positif, $negatif);
+    }
+
+    public function mingguan(){
+
+        $berita_positif = DB::select("select DAYNAME(updated_at) as 'day', count(updated_at) as 'jumlah' from berita where jenis_berita = 'option1'group by day");
+        $berita_negatif = DB::select("select DAYNAME(updated_at) as 'day', count(updated_at) as 'jumlah' from berita where jenis_berita = 'option2'group by day");
+        
+        $i = 0;
+        $dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $positif = array(0,0,0,0,0,0,0);
         $negatif = array(0,0,0,0,0,0,0);
         foreach($dayNames as $hari){
@@ -36,6 +80,7 @@ class RekapitulasiController extends Controller
             }
             $i++;
         }
+
         $i =0;
         foreach($dayNames as $hari){
             foreach($berita_negatif as $data){
@@ -46,8 +91,37 @@ class RekapitulasiController extends Controller
             }  
             $i++;
         }
-         
-        return view('user.rekapitulasi.index', compact('user','role_user', 'positif', 'negatif'));
+        return array($positif, $negatif);
+    }
+
+    public function bulanan(){
+        $berita_positif = DB::select("select MONTH(updated_at) as 'month', count(updated_at) as 'jumlah' from berita where jenis_berita = 'option1'group by month");
+        $berita_negatif = DB::select("select MONTH(updated_at) as 'month', count(updated_at) as 'jumlah' from berita where jenis_berita = 'option2'group by month");
+        
+        $i = 0;
+        $namaBulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        $positif = array(0,0,0,0,0,0,0,0,0,0,0,0);
+        $negatif = array(0,0,0,0,0,0,0,0,0,0,0,0);
+        foreach($namaBulan as $bulan){
+            foreach($berita_positif as $data){
+                if($bulan == $data->month){
+                        $positif[$i] = $data->jumlah;
+                }  
+            }
+            $i++;
+        }
+
+        $i =0;
+        foreach($namaBulan as $bulan){
+            foreach($berita_negatif as $data){
+                if($bulan == $data->month){
+                        $negatif[$i] = $data->jumlah;
+                }  
+
+            }  
+            $i++;
+        }
+        return array($positif, $negatif);
     }
 
     /**
@@ -82,14 +156,7 @@ class RekapitulasiController extends Controller
         $id_user = auth()->user()->id;
         $user = User::find($id_user);
         $role_user = RoleUser::find($id_user);
-        $data = DB::table('berita')->select('*')->orderBy('created_at', 'desc')->get();
-        return view('user.rekapitulasi.view', compact('user','role_user', 'data'))->with('i');
-    }
-
-    public function view($id) 
-    {
-        $data = Pelaporan::where('id')->get();
-        return view('user.rekapitulasi.detail', compact('data'));
+        return view('user.rekapitulasi.view', compact('user','role_user'));
     }
 
     public function detail()
@@ -108,8 +175,7 @@ class RekapitulasiController extends Controller
      */
     public function edit($id)
     {
-        $data = Pelaporan::where('id', $id)->get();
-        return view('user.rekapitulasi.edit', compact('data'));
+        //
     }
 
     /**
@@ -121,46 +187,7 @@ class RekapitulasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'judul' => 'required',
-            'kategori_berita' => 'required',
-            'isi_berita' => 'required',
-            'media' => 'required',
-            'inlineRadioOptions' => 'required',
-            'saran' => 'required',
-            'upload_gambar' => 'image|nullable|max:10000'
-
-        ]);
-
-        if($request->hasFile('upload_gambar')){
-            // $filenameWithExt = $request->file('upload_gambar')->getClientOriginalName();
-            // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // $extension = $request->file('upload_gambar')->getClientOriginalExtension();
-            // $filenameSimpan = $filename.'_'.time().'.'.$extension;
-            // $path = $request->file('upload_gambar')->storeAs('images/', $filenameSimpan);
-            $path_file = 'images/';
-            $store_file = date('YmdHis') . "." . $request->upload_gambar->getClientOriginalExtension();
-            $request->upload_gambar->move($path_file, $store_file);
-        }else{
-            return $request;
-        }
-
-        DB::table('berita')
-            ->where('id',$id)
-            ->update([
-                'judul_berita' => $request['judul'],
-                'kategori_berita' => $request['kategori_berita'],
-                'isi_berita' => $request['isi_berita'],
-                'media' => $request['media'],
-                'jenis_berita' => $request['inlineRadioOptions'],
-                'saran' => $request['saran'],
-                'upload_gambar' => $store_file, 
-                'user_id' => Auth::id()
-            ]);
-        return redirect()->route('user.pelaporan.index')->with([
-            'status'=>'success',
-            'message'=>'Berhasil membuat laporan'
-        ]);
+        //
     }
 
     /**
